@@ -3,7 +3,7 @@ const app = express();
 const port = 3000;
 const bookRouter = require("./Routes/bookRoutes");
 const authRouter = require("./Routes/auth");
-const authentication=require('./Middlewares/demo')
+const authentication=require('./Middlewares/auth')
 const connect = require("./Config/db");
 require('dotenv').config();
 
