@@ -35,4 +35,6 @@ userSchema.methods.verifyUser = async function (givenPassword) {
   return match;
 };
 
+
+
 module.exports = mongoose.model("user", userSchema);

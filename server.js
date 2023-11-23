@@ -1,15 +1,33 @@
+require("express-async-errors");
 const express = require("express");
 const app = express();
-const port = 3000;
+require("dotenv").config();
+app.use(express.json());
+
+//Security Packages
+
+const cors = require("cors");
+const helm = require("helmet");
+const xss = require("xss-clean");
+app.use(cors());
+app.use(helm());
+app.use(xss());
+
+//Middlewares
+const authentication = require("./Middlewares/auth");
+
+//Routes
 const bookRouter = require("./Routes/bookRoutes");
 const authRouter = require("./Routes/auth");
-const authentication=require('./Middlewares/auth')
-const connect = require("./Config/db");
-require('dotenv').config();
+const profile = require("./Routes/user");
 
-app.use(express.json());
 app.use("/api/v1/auth", authRouter);
-app.use("/api/v1",authentication, bookRouter);
+app.use("/api/v1", authentication, bookRouter);
+app.use("/api/v1", authentication, profile);
+
+//Database
+const connect = require("./Config/db");
+const port = 3000;
 
 const start = async () => {
   try {

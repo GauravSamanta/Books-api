@@ -3,6 +3,7 @@ const router = express.Router();
 
 const {
   getBooks,
+  postBooks,
   getBookByISBN,
   getBookByAuthor,
   getBookByTitle,
@@ -12,7 +13,7 @@ const {
   deleteReview,
 } = require("../Controllers/booksfnc");
 
-router.route("/books").get(getBooks).post();
+router.route("/books").get(getBooks).post(postBooks);
 router.route("/books/:ISBN").get(getBookByISBN);
 router.route("/books/:Author").get(getBookByAuthor);
 router.route("/books/:title").get(getBookByTitle);
@@ -24,6 +25,4 @@ router
   .patch(editReview)
   .delete(deleteReview);
 
-
-
-  module.exports=router;
+module.exports = router;
