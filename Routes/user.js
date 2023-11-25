@@ -1,7 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const { getUserProfile, editUsername } = require("../Controllers/user");
+const { getUserProfile, editUsername,getUsers } = require("../Controllers/user");
 
+router.route("/profile").get(getUsers);
 router.route("/profile/:id").get(getUserProfile).patch(editUsername);
 
 
