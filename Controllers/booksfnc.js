@@ -1,7 +1,6 @@
 require("express-async-errors");
 const { StatusCodes } = require("http-status-codes");
-const { StatusCodes } = require("http-status-codes");
-const book = require("../Models/books");
+const book = require("../Models/book");
 
 const getBooks = async (req, res) => {
   const books = await book.find();
@@ -9,27 +8,18 @@ const getBooks = async (req, res) => {
 };
 
 const postBooks = async (req, res) => {
-  const temp = await book.create(temp);
-  res.status(StatusCodes.OK);
+  const temp = await book.create(req.body);
+  res.status(StatusCodes.OK).json(temp);
 };
 
-const getBookByISBN = (req, res) => {
-  console.log("isbn");
-  res.json(req.params.ISBN);
-};
-
-const getBookByAuthor = (req, res) => {
-  console.log("author");
-  res.json(req.params.author);
-};
-
-const getBookByTitle = (req, res) => {
-  console.log(title);
-  res.json(req.params.title);
+const searchBook = async(req, res) => {
+  const params = req.body;
+  const temp= await book.find(params);
+  res.json(temp);
 };
 
 const getBookReview = (req, res) => {
-  res.json(req.params);
+  
 };
 
 const postReview = (req, res) => {
@@ -47,9 +37,7 @@ const deleteReview = (req, res) => {
 module.exports = {
   getBooks,
   postBooks,
-  getBookByISBN,
-  getBookByAuthor,
-  getBookByTitle,
+  searchBook,
   getBookReview,
   postReview,
   editReview,

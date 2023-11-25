@@ -4,9 +4,7 @@ const router = express.Router();
 const {
   getBooks,
   postBooks,
-  getBookByISBN,
-  getBookByAuthor,
-  getBookByTitle,
+  searchBook,
   getBookReview,
   postReview,
   editReview,
@@ -14,12 +12,9 @@ const {
 } = require("../Controllers/booksfnc");
 
 router.route("/books").get(getBooks).post(postBooks);
-router.route("/books/:ISBN").get(getBookByISBN);
-router.route("/books/:Author").get(getBookByAuthor);
-router.route("/books/:title").get(getBookByTitle);
-
+router.route("/books/:ISBN").post(searchBook);
 router
-  .route("/books/:id/review")
+  .route("/books/review/:id")
   .get(getBookReview)
   .post(postReview)
   .patch(editReview)
