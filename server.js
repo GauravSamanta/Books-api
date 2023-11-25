@@ -27,7 +27,7 @@ app.use("/api/v1", authentication, profile);
 
 //Database
 const connect = require("./Config/db");
-const port = 3000;
+const port =process.env.PORT || 5000 ;
 
 const start = async () => {
   try {
