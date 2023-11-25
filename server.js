@@ -22,12 +22,12 @@ const authRouter = require("./Routes/auth");
 const profile = require("./Routes/user");
 
 app.use("/api/v1/auth", authRouter);
-app.use("/api/v1", authentication, bookRouter);
-app.use("/api/v1", authentication, profile);
+app.use("/api/v1", bookRouter);
+app.use("/api/v1", profile);
 
 //Database
 const connect = require("./Config/db");
-const port =process.env.PORT || 5000 ;
+const port = process.env.PORT || 5000;
 
 const start = async () => {
   try {
