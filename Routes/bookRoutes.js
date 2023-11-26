@@ -12,7 +12,7 @@ const {
 } = require("../Controllers/booksfnc");
 
 router.route("/books").get(getBooks).post(postBooks);
-router.route("/books/:ISBN").post(searchBook);
+router.route("/books/:param").post(searchBook);
 router
   .route("/books/review/:id")
   .get(getBookReview)

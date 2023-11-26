@@ -33,7 +33,7 @@ const start = async () => {
   try {
     await connect(process.env.MONGO_URI);
     app.listen(port, () => {
-      console.log(`Example app listening on port ${port}`);
+      console.log(`Books app listening on port ${port}`);
     });
   } catch (error) {
     console.log(error);
