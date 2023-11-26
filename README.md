@@ -71,8 +71,8 @@ Handles user profile operations. Requires authentication.
 ### OR
 
 1. Clone the repository
-2. Build the docker image with 'docker build -t books-api:latest .'
-3. Run the docker container with 'docker run -d -p 5000:5000 --name booksapi books-api'
+2. Build the docker image with `docker build -t books-api:latest .`
+3. Run the docker container with `docker run -d -p 5000:5000 --name booksapi books-api`
 
 ## Note
 
