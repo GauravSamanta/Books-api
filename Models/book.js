@@ -4,10 +4,12 @@ const book = new mongoose.Schema({
   ISBN: {
     type: String,
     required: true,
+    unique: true,
   },
   title: {
     type: String,
     required: true,
+    unique:true
   },
   author: {
     type: String,
