@@ -19,7 +19,7 @@ const searchBook = async(req, res) => {
 };
 
 const getBookReview = (req, res) => {
-  
+  res.send("Book Review");
 };
 
 const postReview = (req, res) => {
