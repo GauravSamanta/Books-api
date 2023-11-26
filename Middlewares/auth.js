@@ -3,7 +3,7 @@ const StatusCodes = require("http-status-codes");
 
 const auth = (req, res, next) => {
   const authheader = req.headers.authorization;
-  if (!authheader | !authheader.startsWith("Bearer ")) {
+  if (!authheader || !authheader.startsWith("Bearer ")) {
     res.send("not ok");
   }
   const token = authheader.split(" ")[1];
