@@ -77,9 +77,9 @@ Handles user profile operations. Requires authentication.
 ## Note
 
 1. Please replace the following environment variables with your own
-    1. MONGO_URI
-    2. JWT_SECRET
-    3. JWT_EXPIRES_IN
+    1. `MONGO_URI`
+    2. `JWT_SECRET`
+    3. `JWT_EXPIRES_IN`
 
 ## Usage
 
