@@ -1,6 +1,7 @@
 require("express-async-errors");
 const { StatusCodes } = require("http-status-codes");
 const book = require("../Models/book");
+const review = require("../Models/review");
 
 const getBooks = async (req, res) => {
   const books = await book.find();
@@ -12,26 +13,39 @@ const postBooks = async (req, res) => {
   res.status(StatusCodes.OK).json(temp);
 };
 
-const searchBook = async(req, res) => {
+const searchBook = async (req, res) => {
   const params = req.body;
-  const temp= await book.find(params);
+  const temp = await book.find(params);
   res.json(temp);
 };
 
 const getBookReview = (req, res) => {
-  res.send("Book Review");
+  const { id } = req.params;
+  const temp = review.find({ bookID: id });
+  res.json({ temp });
 };
 
-const postReview = (req, res) => {
-  res.json(req.json);
+const postReview = async (req, res) => {
+  const { id } = req.params;
+  const temp = await review.create({ ...req.body, bookID: id });
+
+  res.json(temp);
 };
 
-const editReview = (req, res) => {
-  res.json(req.body, req.params);
+const editReview = async (req, res) => {
+  const { id } = req.params;
+  const temp = req.body;
+  await review.findByIdAndUpdate(id, temp);
+  res.json(temp);
 };
 
 const deleteReview = (req, res) => {
-  res.json(req.params);
+  const { id } = req.params;
+  if (!id) {
+    res.status(StatusCodes.NOT_FOUND).json({ message: "Not Found" });
+  }
+  const temp = review.findByIdAndDelete(id);
+  res.json(temp);
 };
 
 module.exports = {
