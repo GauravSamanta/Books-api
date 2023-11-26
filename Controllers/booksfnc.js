@@ -33,18 +33,20 @@ const postReview = async (req, res) => {
 };
 
 const editReview = async (req, res) => {
-  const { id } = req.params;
-  const temp = req.body;
-  await review.findByIdAndUpdate(id, temp);
+  const { user_id, book_id } = req.params;
+  const temp = await review.findOneAndUpdate(
+    { bookID: book_id, userID: user_id },
+    req.body,
+    {
+      new: true,
+    }
+  );
   res.json(temp);
 };
 
 const deleteReview = (req, res) => {
-  const { id } = req.params;
-  if (!id) {
-    res.status(StatusCodes.NOT_FOUND).json({ message: "Not Found" });
-  }
-  const temp = review.findByIdAndDelete(id);
+  const { user_id, book_id } = req.params;
+  const temp = review.findOneAndDelete({ bookID: book_id, userID: user_id });
   res.json(temp);
 };
 
