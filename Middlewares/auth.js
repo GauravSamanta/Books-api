@@ -1,10 +1,10 @@
 const jwt = require("jsonwebtoken");
 const StatusCodes = require("http-status-codes");
 
-const auth = (req, res,next) => {
+const auth = (req, res, next) => {
   const authheader = req.headers.authorization;
-  if (!authheader | !authheader.startsWith('Bearer ')) {
-    res.send("not ok")
+  if (!authheader | !authheader.startsWith("Bearer ")) {
+    res.send("not ok");
   }
   const token = authheader.split(" ")[1];
 
@@ -17,4 +17,4 @@ const auth = (req, res,next) => {
   }
 };
 
-module.exports=auth;
+module.exports = auth;

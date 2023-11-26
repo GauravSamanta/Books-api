@@ -30,16 +30,18 @@ userSchema.pre("save", async function () {
 });
 
 userSchema.methods.createJWT = function () {
-  return jwt.sign({ userID: this._id, name: this.name }, process.env.JWT_SECRET, {
-    expiresIn: "30d",
-  });
+  return jwt.sign(
+    { userID: this._id, name: this.name },
+    process.env.JWT_SECRET,
+    {
+      expiresIn: "30d",
+    }
+  );
 };
 
 userSchema.methods.verifyUser = async function (givenPassword) {
   const match = await bcrypt.compare(givenPassword, this.password);
   return match;
 };
-
-
 
 module.exports = mongoose.model("user", userSchema);
