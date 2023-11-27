@@ -8,10 +8,8 @@ app.use(express.json());
 
 const cors = require("cors");
 const helm = require("helmet");
-const xss = require("xss-clean");
 app.use(cors());
 app.use(helm());
-app.use(xss());
 
 //Middlewares
 const authentication = require("./Middlewares/auth");
