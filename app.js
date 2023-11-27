@@ -24,6 +24,10 @@ app.use("/api/v1/auth", authRouter);
 app.use("/api/v1", authentication, bookRouter);
 app.use("/api/v1", authentication, profile);
 
+app.get("/", (req, res) => {  
+  res.send("Hello World!");
+});
+
 //Database
 const connect = require("./Config/db");
 const port = process.env.PORT || 5000;
