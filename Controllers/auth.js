@@ -1,4 +1,5 @@
 const userSchema = require("../Models/user");
+const { StatusCodes } = require("http-status-codes");
 const Register = async (req, res) => {
   try {
     const user = await userSchema.create(req.body);
