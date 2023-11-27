@@ -16,9 +16,9 @@ app.use(xss());
 //Middlewares
 const authentication = require("./Middlewares/auth");
 //Routes
-const bookRouter = require("./routes/api/bookRoutes");
-const authRouter = require("./routes/api/auth");
-const profile = require("./routes/api/user");
+const bookRouter = require("./api/bookRoutes");
+const authRouter = require("./api/auth");
+const profile = require("./api/user");
 
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1", authentication, bookRouter);
