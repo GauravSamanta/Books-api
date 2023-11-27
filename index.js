@@ -23,7 +23,7 @@ app.use("/api/v1", authentication, bookRouter);
 app.use("/api/v1", authentication, profile);
 
 app.get("/", (req, res) => {  
-  res.status(StatusCodes.OK).send("Welcome to Books Review API");
+  res.status(StatusCodes.OK).redirect("https://documenter.getpostman.com/view/30191298/2s9YeEcXpj");
 });
 
 //Database
