@@ -18,9 +18,9 @@ const bookRouter = require("./routes/bookRoutes");
 const authRouter = require("./routes/auth");
 const profile = require("./routes/user");
 
-app.use("api/v1/auth", authRouter);
+app.use("/api/v1/auth", authRouter);
 app.use("/api/v1", authentication, bookRouter);
-app.use("api/v1", authentication, profile);
+app.use("/api/v1", authentication, profile);
 
 app.get("/", (req, res) => {  
   res.status(StatusCodes.OK).send("Welcome to Books Review API");
