@@ -19,7 +19,7 @@ const authRouter = require("./routes/auth");
 const profile = require("./routes/user");
 
 app.use("api/v1/auth", authRouter);
-app.use("/apiv1", authentication, bookRouter);
+app.use("/api/v1", authentication, bookRouter);
 app.use("api/v1", authentication, profile);
 
 app.get("/", (req, res) => {  
