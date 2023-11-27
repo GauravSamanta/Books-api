@@ -14,19 +14,18 @@ app.use(helm());
 app.use(xss());
 
 //Middlewares
-const authentication = require("../Middlewares/auth");
-
+const authentication = require("./Middlewares/auth");
 //Routes
-const bookRouter = require("../Routes/bookRoutes");
-const authRouter = require("../Routes/auth");
-const profile = require("../Routes/user");
+const bookRouter = require("./routes/api/bookRoutes");
+const authRouter = require("./routes/api/auth");
+const profile = require("./routes/api/user");
 
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1", authentication, bookRouter);
 app.use("/api/v1", authentication, profile);
 
 //Database
-const connect = require("../Config/db");
+const connect = require("./Config/db");
 const port = process.env.PORT || 5000;
 
 const start = async () => {
