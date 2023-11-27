@@ -2,13 +2,13 @@
   "name": "bookstore",
   "version": "1.0.0",
   "description": "",
-  "main": "./api/index.js",
+  "main": "app.js",
   "engines": {
     "node": "18.x"
   },
   "scripts": {
-   "start": "nodemon index.js",
-   "build":"node index.js"
+   "start": "nodemon app",
+   "build":"node app"
   },
   "keywords": [],
   "author": "",
