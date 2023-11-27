@@ -23,7 +23,7 @@ app.use("/v1", authentication, bookRouter);
 app.use("/v1", authentication, profile);
 
 app.get("/", (req, res) => {  
-  res.status(StatusCodes.OK).send("Hello World!");
+  res.status(StatusCodes.OK).send("Welcome to Books Review API");
 });
 
 //Database
@@ -35,7 +35,7 @@ const start = async () => {
   try {
     await connect(process.env.MONGO_URI);
     app.listen(port, () => {
-      console.log(`Books app listening on port ${port}`);
+      console.log(`Books Review app listening on port ${port}`);
     });
   } catch (error) {
     console.log(error);
